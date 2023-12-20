@@ -12,7 +12,7 @@ import {
 } from "../common/utils.js";
 import { langCardLocales } from "../translations.js";
 
-const DEFAULT_CARD_WIDTH = 300;
+const DEFAULT_CARD_WIDTH = 600;
 const MIN_CARD_WIDTH = 280;
 const DEFAULT_LANG_COLOR = "#858585";
 const CARD_PADDING = 25;
@@ -20,7 +20,7 @@ const COMPACT_LAYOUT_BASE_HEIGHT = 90;
 const MAXIMUM_LANGS_COUNT = 20;
 
 const NORMAL_LAYOUT_DEFAULT_LANGS_COUNT = 5;
-const COMPACT_LAYOUT_DEFAULT_LANGS_COUNT = 6;
+const COMPACT_LAYOUT_DEFAULT_LANGS_COUNT = 12;
 const DONUT_LAYOUT_DEFAULT_LANGS_COUNT = 5;
 const PIE_LAYOUT_DEFAULT_LANGS_COUNT = 6;
 const DONUT_VERTICAL_LAYOUT_DEFAULT_LANGS_COUNT = 6;
@@ -110,7 +110,7 @@ const getCircleLength = (radius) => {
  * @returns {number} Card height.
  */
 const calculateCompactLayoutHeight = (totalLangs) => {
-  return COMPACT_LAYOUT_BASE_HEIGHT + Math.round(totalLangs / 2) * 25;
+  return COMPACT_LAYOUT_BASE_HEIGHT + Math.round(totalLangs / 4) * 25;
 };
 
 /**
@@ -360,7 +360,7 @@ const renderCompactLayout = (langs, width, totalLanguageSize, hideProgress) => {
   const compactProgressBar = langs
     .map((lang) => {
       const percentage = parseFloat(
-        ((lang.size / totalLanguageSize) * offsetWidth).toFixed(2),
+        ((lang.size / totalLanguageSize) * offsetWidth).toFixed(4),
       );
 
       const progress = percentage < 10 ? percentage + 10 : percentage;
