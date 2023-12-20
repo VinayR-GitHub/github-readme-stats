@@ -248,7 +248,7 @@ const createCompactLangNode = ({ lang, totalSize, hideProgress, index }) => {
   return `
     <g class="stagger" style="animation-delay: ${staggerDelay}ms">
       <circle cx="5" cy="6" r="5" fill="${color}" />
-      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
+      <text data-testid="lang-name" x="15" y="20" class='lang-name'>
         ${lang.name} ${hideProgress ? "" : percentage + "%"}
       </text>
     </g>
