@@ -12,15 +12,15 @@ import {
 } from "../common/utils.js";
 import { langCardLocales } from "../translations.js";
 
-const DEFAULT_CARD_WIDTH = 600;
-const MIN_CARD_WIDTH = 580;
+const DEFAULT_CARD_WIDTH = 300;
+const MIN_CARD_WIDTH = 280;
 const DEFAULT_LANG_COLOR = "#858585";
 const CARD_PADDING = 25;
 const COMPACT_LAYOUT_BASE_HEIGHT = 90;
 const MAXIMUM_LANGS_COUNT = 20;
 
 const NORMAL_LAYOUT_DEFAULT_LANGS_COUNT = 5;
-const COMPACT_LAYOUT_DEFAULT_LANGS_COUNT = 12;
+const COMPACT_LAYOUT_DEFAULT_LANGS_COUNT = 6;
 const DONUT_LAYOUT_DEFAULT_LANGS_COUNT = 5;
 const PIE_LAYOUT_DEFAULT_LANGS_COUNT = 6;
 const DONUT_VERTICAL_LAYOUT_DEFAULT_LANGS_COUNT = 6;
@@ -110,7 +110,7 @@ const getCircleLength = (radius) => {
  * @returns {number} Card height.
  */
 const calculateCompactLayoutHeight = (totalLangs) => {
-  return COMPACT_LAYOUT_BASE_HEIGHT + Math.round(totalLangs / 4) * 25;
+  return COMPACT_LAYOUT_BASE_HEIGHT + Math.round(totalLangs / 2) * 25;
 };
 
 /**
@@ -241,14 +241,14 @@ const createProgressTextNode = ({ width, color, name, progress, index }) => {
  * @returns {string} Compact layout programming language SVG node.
  */
 const createCompactLangNode = ({ lang, totalSize, hideProgress, index }) => {
-  const percentage = ((lang.size / totalSize) * 100).toFixed(4);
+  const percentage = ((lang.size / totalSize) * 100).toFixed(2);
   const staggerDelay = (index + 3) * 150;
   const color = lang.color || "#858585";
 
   return `
     <g class="stagger" style="animation-delay: ${staggerDelay}ms">
       <circle cx="5" cy="6" r="5" fill="${color}" />
-      <text data-testid="lang-name" x="15" y="20" class='lang-name'>
+      <text data-testid="lang-name" x="15" y="10" class='lang-name'>
         ${lang.name} ${hideProgress ? "" : percentage + "%"}
       </text>
     </g>
@@ -360,7 +360,7 @@ const renderCompactLayout = (langs, width, totalLanguageSize, hideProgress) => {
   const compactProgressBar = langs
     .map((lang) => {
       const percentage = parseFloat(
-        ((lang.size / totalLanguageSize) * offsetWidth).toFixed(4),
+        ((lang.size / totalLanguageSize) * offsetWidth).toFixed(2),
       );
 
       const progress = percentage < 10 ? percentage + 10 : percentage;
