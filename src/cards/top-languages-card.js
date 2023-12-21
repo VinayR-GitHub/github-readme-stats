@@ -241,7 +241,7 @@ const createProgressTextNode = ({ width, color, name, progress, index }) => {
  * @returns {string} Compact layout programming language SVG node.
  */
 const createCompactLangNode = ({ lang, totalSize, hideProgress, index }) => {
-  const percentage = ((lang.size / totalSize) * 100).toFixed(2);
+  const percentage = ((lang.size / totalSize) * 100).toFixed(3);
   const staggerDelay = (index + 3) * 150;
   const color = lang.color || "#858585";
 
@@ -360,7 +360,7 @@ const renderCompactLayout = (langs, width, totalLanguageSize, hideProgress) => {
   const compactProgressBar = langs
     .map((lang) => {
       const percentage = parseFloat(
-        ((lang.size / totalLanguageSize) * offsetWidth).toFixed(2),
+        ((lang.size / totalLanguageSize) * offsetWidth).toFixed(3),
       );
 
       const progress = percentage < 10 ? percentage + 10 : percentage;
