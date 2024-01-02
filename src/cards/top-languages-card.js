@@ -110,7 +110,7 @@ const getCircleLength = (radius) => {
  * @returns {number} Card height.
  */
 const calculateCompactLayoutHeight = (totalLangs) => {
-  return COMPACT_LAYOUT_BASE_HEIGHT + Math.round(totalLangs / 4) * 25;
+  return COMPACT_LAYOUT_BASE_HEIGHT + Math.round(totalLangs / 2) * 25;
 };
 
 /**
