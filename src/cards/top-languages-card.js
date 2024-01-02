@@ -19,11 +19,11 @@ const CARD_PADDING = 25;
 const COMPACT_LAYOUT_BASE_HEIGHT = 90;
 const MAXIMUM_LANGS_COUNT = 20;
 
-const NORMAL_LAYOUT_DEFAULT_LANGS_COUNT = 5;
-const COMPACT_LAYOUT_DEFAULT_LANGS_COUNT = 10;
-const DONUT_LAYOUT_DEFAULT_LANGS_COUNT = 5;
-const PIE_LAYOUT_DEFAULT_LANGS_COUNT = 6;
-const DONUT_VERTICAL_LAYOUT_DEFAULT_LANGS_COUNT = 6;
+const NORMAL_LAYOUT_DEFAULT_LANGS_COUNT = 15;
+const COMPACT_LAYOUT_DEFAULT_LANGS_COUNT = 20;
+const DONUT_LAYOUT_DEFAULT_LANGS_COUNT = 15;
+const PIE_LAYOUT_DEFAULT_LANGS_COUNT = 20;
+const DONUT_VERTICAL_LAYOUT_DEFAULT_LANGS_COUNT = 20;
 
 /**
  * @typedef {import("../fetchers/types").Lang} Lang
@@ -110,7 +110,7 @@ const getCircleLength = (radius) => {
  * @returns {number} Card height.
  */
 const calculateCompactLayoutHeight = (totalLangs) => {
-  return COMPACT_LAYOUT_BASE_HEIGHT + Math.round(totalLangs / 2) * 25;
+  return COMPACT_LAYOUT_BASE_HEIGHT + Math.round(totalLangs / 4) * 25;
 };
 
 /**
@@ -242,7 +242,7 @@ const createProgressTextNode = ({ width, color, name, progress, index }) => {
  */
 const createCompactLangNode = ({ lang, totalSize, hideProgress, index }) => {
   const percentage = ((lang.size / totalSize) * 100).toFixed(3);
-  const staggerDelay = (index + 3) * 150;
+  const staggerDelay = (index + 3) * 75;
   const color = lang.color || "#858585";
 
   return `
