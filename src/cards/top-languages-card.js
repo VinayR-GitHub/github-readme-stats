@@ -242,7 +242,7 @@ const createProgressTextNode = ({ width, color, name, progress, index }) => {
  */
 const createCompactLangNode = ({ lang, totalSize, hideProgress, index }) => {
   const percentage = ((lang.size / totalSize) * 100).toFixed(3);
-  const staggerDelay = (index + 3) * 75;
+  const staggerDelay = (index + 3) * 150;
   const color = lang.color || "#858585";
 
   return `
